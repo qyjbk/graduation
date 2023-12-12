@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4370315 */
+  src: url('iconfont.woff2?t=1702380253867') format('woff2'),
+       url('iconfont.woff?t=1702380253867') format('woff'),
+       url('iconfont.ttf?t=1702380253867') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-CPU:before {
+  content: "\e691";
+}
+
+.icon-github:before {
+  content: "\e85a";
+}
+
+.icon-dengpao:before {
+  content: "\e687";
+}
+
+.icon-diannao:before {
+  content: "\e688";
+}
+
+.icon-gouwuche:before {
+  content: "\e68a";
+}
+
+.icon-diannaojixiang-:before {
+  content: "\e615";
+}
+
+.icon-neicuntiao:before {
+  content: "\e627";
+}
+
+.icon-Drie-Settings:before {
+  content: "\ec4c";
+}
+
+.icon-cpu:before {
+  content: "\e722";
+}
+
+.icon-gpu:before {
+  content: "\e6e6";
+}
+
+.icon-kaiji:before {
+  content: "\e6a4";
+}
+
+.icon-dianyuan:before {
+  content: "\ea9c";
+}
+
+.icon-zhuban:before {
+  content: "\ea9f";
+}
+
+.icon-a-sanrefengshan:before {
+  content: "\eaa1";
+}
+

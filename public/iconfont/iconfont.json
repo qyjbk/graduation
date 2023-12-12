@@ -1,0 +1,107 @@
+{
+  "id": "4370315",
+  "name": "毕设",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1361686",
+      "name": "CPU",
+      "font_class": "CPU",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "1469225",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e85a",
+      "unicode_decimal": 59482
+    },
+    {
+      "icon_id": "4520156",
+      "name": "灯泡",
+      "font_class": "dengpao",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "4520163",
+      "name": "电脑",
+      "font_class": "diannao",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "4520164",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "4988488",
+      "name": "电脑机箱-01",
+      "font_class": "diannaojixiang-",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "5057044",
+      "name": "内存条",
+      "font_class": "neicuntiao",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "10770619",
+      "name": "Drie-Settings",
+      "font_class": "Drie-Settings",
+      "unicode": "ec4c",
+      "unicode_decimal": 60492
+    },
+    {
+      "icon_id": "19418400",
+      "name": "cpu",
+      "font_class": "cpu",
+      "unicode": "e722",
+      "unicode_decimal": 59170
+    },
+    {
+      "icon_id": "22273611",
+      "name": "gpu",
+      "font_class": "gpu",
+      "unicode": "e6e6",
+      "unicode_decimal": 59110
+    },
+    {
+      "icon_id": "27499574",
+      "name": "开机",
+      "font_class": "kaiji",
+      "unicode": "e6a4",
+      "unicode_decimal": 59044
+    },
+    {
+      "icon_id": "35765043",
+      "name": "电源",
+      "font_class": "dianyuan",
+      "unicode": "ea9c",
+      "unicode_decimal": 60060
+    },
+    {
+      "icon_id": "35765609",
+      "name": "主板",
+      "font_class": "zhuban",
+      "unicode": "ea9f",
+      "unicode_decimal": 60063
+    },
+    {
+      "icon_id": "35775942",
+      "name": "散热、风扇",
+      "font_class": "a-sanrefengshan",
+      "unicode": "eaa1",
+      "unicode_decimal": 60065
+    }
+  ]
+}
