@@ -16,6 +16,9 @@ import MainContent from './components/MainContent.vue'
 <style lang="scss" scoped>
 .heading {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
 }
 .main {
   &__title {
