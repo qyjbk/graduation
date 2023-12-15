@@ -10,6 +10,11 @@
   font-family: Chinese, "Microsoft YaHei", sans-serif;
   
   font-size: 62.5%;
+  --color-text: black;
+  --color-text-white: #fff;
+  
+  --margin-title-top: 5rem;
+  --margin-title-left: 6rem;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,11 +31,16 @@
 html {
     box-sizing: border-box;
     font-size: 62.5%;
+
+    color: var(--color-text);
 }
 
 body {
   font-weight: 300;
   line-height: 1.6;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .icon {

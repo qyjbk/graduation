@@ -15,18 +15,23 @@ import MainContent from './components/MainContent.vue'
 
 <style lang="scss" scoped>
 .heading {
+  margin: var(--margin-title-top) 0rem 2rem var(--margin-title-left);
   display: flex;
   justify-content: space-between;
   align-items: center;
   user-select: none;
+  height: 2rem;
 }
 .main {
+  height: calc(100vh - 12rem);
   &__title {
-    margin-top: 0;
-    font-weight: 200;
-    font-size: 2.2rem;
-    margin-left: 1.5rem;
+    margin-top: var(--margin-title-top);
+    margin-bottom: var(--margin-title-top);
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-left: var(--margin-title-left);
     letter-spacing: .2rem;
+    line-height: 3rem;
   }
 }
 
