@@ -21,11 +21,31 @@
 
 <style lang="scss" scoped>
 .card {
-    background-color: rgb(71,79,113);
     width: 20%;
-    height: 100%;
-    border-radius: 3rem 3rem 0 0 ;
+    height: 80%;
     color: var(--color-text-white);
+
+
+    transition: all 0.8s;
+    // transform-origin: center;
+    &:hover {
+        height: 100%;
+        border-radius: 3rem 3rem 0 0 ;
+        background-color: rgb(71,79,113);
+    }
+
+    &:hover &__picbox {
+        width: 130%;
+        height: 65%;
+    }
+
+    &:hover &__bottom__price__des {
+        color: rgb(129,128,159);
+    }
+
+    &:hover &__bottom__link {
+        background-color: rgb(236,97,89);
+    }
 
     &__name {
         margin-top: 8rem;
@@ -37,9 +57,10 @@
         }
     }
     &__picbox {
+        transition: all 0.8s;
         margin: 0;
-        width: 130%;
-        height: 65%;
+        width: 100%;
+        height: 60%;
         &__pic {
             width: 100%;
             height: 100%;
@@ -50,19 +71,36 @@
         margin-left: 7rem;
         display: flex;
 
+        &__price {
+            margin-right: 4rem;
+            &__des {
+                transform: all 1s;
+                font-size: 1.4rem;
+            }
+            &__num {
+                font-size: 2rem;
+            }
+        }
+
         &__link {
+            transition: all 0.8s;
             &:link,
             &:visited {
                 display: block;
                 width: 6rem;
                 height: 6rem;
-                background-color: rgb(236,97,89);
+                background-color: var(--color-text-white);
                 text-align: center;
                 line-height: 6rem;
                 border-radius: 1rem;
-                font-size: 2.2rem;
+                font-size: 3rem;
+                font-weight: 100;
                 color: var(--color-text-white);
                 text-decoration: none;
+            }
+            &:hover,
+            &:active {
+                transform: scale(.9);
             }
         }
     }
