@@ -1,6 +1,7 @@
 <script setup>
 import Heading from './components/Heading.vue'
 import MainContent from './components/MainContent.vue'
+import BottomSvgIcon from './components/BottomSvgIcon.vue'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import MainContent from './components/MainContent.vue'
     <h1 class="main__title">推荐电脑搭配</h1>
     <MainContent></MainContent>
   </section>
+  <BottomSvgIcon></BottomSvgIcon>
 </template>
 
 <style lang="scss" scoped>

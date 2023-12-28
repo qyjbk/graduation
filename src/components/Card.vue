@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineExpose, ref, onMounted } from 'vue';
+import { defineExpose, ref, onMounted } from 'vue';
 const active = ref({})
 const props = defineProps(['card', 'changeActiveItem'])
 const card = props.card
