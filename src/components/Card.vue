@@ -1,5 +1,5 @@
 <template>
-    <div class="card" ref="active">
+    <div class="card" ref="active" @click="doSomething">
         <div class="card__name">
             <h2>{{ card.name }}</h2>
         </div>
@@ -19,18 +19,39 @@
 
 <script setup>
 import { defineExpose, ref, onMounted } from 'vue';
+import gsap from 'gsap';
+
 const active = ref({})
-const props = defineProps(['card', 'changeActiveItem'])
+const props = defineProps(['card', 'animationOtherCard', 'changeActiveItem', 'index'])
 const card = props.card
 // 激活card的选中状态
 const activeFunc = () => {
     active.value.classList.add('active')
-    return card.id
+    // console.log('id', card.id)
+    return props.index
 }
 // 取消激活card的选中状态
 const unActiveFunc = () => {
     active.value.classList.remove('active')
-    return card.id
+    return props.index
+}
+
+// card移出屏幕动画
+const animationCardMoveVPLeft = () => {
+    gsap.to(active.value, { duration: 0.5, ease: "power1.out", x: '-100vw',})
+}
+const animationCardMoveVPRight = () => {
+    gsap.to(active.value, { duration: 0.5, ease: "power1.out", x: '100vw',})
+}
+
+const doSomething = () => {
+    // 获取盒子在视口的位置
+    const boxRect = active.value.getBoundingClientRect();
+    // console.log("Box position:", boxRect.top, boxRect.left);
+    const xw = boxRect.left - 0.05*window.innerWidth;
+    gsap.to(active.value, { duration: 0.5, width:'30vw',height: '100vh', scale: 1.1, ease: "power1.out", x: -xw,})
+    // 调用父盒子的函数，用于触发激活元素的移出事件
+    props.animationOtherCard(props.index)
 }
 onMounted(() => {
     active.value.addEventListener('mouseover', function () {
@@ -39,7 +60,8 @@ onMounted(() => {
     });
 })
 
-defineExpose({ activeFunc, unActiveFunc })
+// 导出供父组件ref使用
+defineExpose({ activeFunc, unActiveFunc, animationCardMoveVPLeft ,animationCardMoveVPRight})
 </script>
 
 <style lang="scss" scoped>
@@ -50,25 +72,6 @@ defineExpose({ activeFunc, unActiveFunc })
 
     transition: all 0.8s;
 
-    // transform-origin: center;
-    // &:hover {
-    //     height: 100%;
-    //     border-radius: 3rem 3rem 0 0;
-    //     background-color: rgb(71, 79, 113);
-    // }
-
-    // &:hover &__picbox {
-    //     width: 110%;
-    //     height: 55%;
-    // }
-
-    // &:hover &__bottom__price__des {
-    //     color: rgb(129, 128, 159);
-    // }
-
-    // &:hover &__bottom__link {
-    //     background-color: rgb(236, 97, 89);
-    // }
     &:hover {
         cursor: pointer;
     }

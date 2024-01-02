@@ -1,19 +1,19 @@
 <template>
     <div class="mainContent__flexBox" >
-        <Card :card = "card[0]" :changeActiveItem="changeActiveItem" ref="card1"></Card>
-        <Card :card = "card[1]" :changeActiveItem="changeActiveItem" ref="card2"></Card>
-        <Card :card = "card[2]" :changeActiveItem="changeActiveItem" ref="card3"></Card>
+        <Card :card = "card[0]" :changeActiveItem="changeActiveItem" ref="card1" :index="0" :animationOtherCard = 'animationOtherCard'></Card>
+        <Card :card = "card[1]" :changeActiveItem="changeActiveItem" ref="card2" :index="1" :animationOtherCard = 'animationOtherCard'></Card>
+        <Card :card = "card[2]" :changeActiveItem="changeActiveItem" ref="card3" :index="2" :animationOtherCard = 'animationOtherCard'></Card>
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
-import Card from './Card.vue'
+import { ref, onMounted, watch } from 'vue';
+import Card from './Card.vue';
 
 // 对每个card标签进行标记
-const card1 = ref('card1')
-const card2 = ref('card2')
-const card3 = ref('card3')
+const card1 = ref({})
+const card2 = ref({})
+const card3 = ref({})
 
 // 用cardObj来存储card标签，利于后续操作
 const cardObj = {
@@ -24,10 +24,6 @@ const cardObj = {
 
 // 对当前激活的card标签进行标记
 const activeItem = ref(1)
-// 作为props传递给子组件，用于修改父组件记录的当前激活的card标签
-function changeActiveItem(id) {
-    activeItem.value = id
-}
 
 // 获取的card信息
 const card = [
@@ -51,6 +47,25 @@ const card = [
     },
 ]
 
+// 让非事件触发者的card标签进行动画
+const animationOtherCard = (index) => {
+    // 
+    for (let i = 0; i < card.length; i++) {
+        if (i !== index) {
+            // 判断card在触发事件的左右侧，分别触发移出函数
+            if(index < i) {
+                cardObj[`card${i+1}`].value.animationCardMoveVPRight()
+            } else {
+                cardObj[`card${i+1}`].value.animationCardMoveVPLeft()
+            }
+        }
+    }
+}
+
+// 作为props传递给子组件，用于修改父组件记录的当前激活的card标签
+function changeActiveItem(id) {
+    activeItem.value = id
+}
 // 监听事件, 使当前激活的card标签失去激活状态
 watch(() => activeItem.value, (newVal, oldVal) => {
     cardObj[`card${oldVal}`].value.unActiveFunc()
