@@ -13,12 +13,11 @@
             </div>
             <a href="#" class="card__bottom__link">+</a>
         </div>
-
     </div>
 </template>
 
 <script setup>
-import { defineExpose, ref, onMounted } from 'vue';
+import { ref, onMounted, } from 'vue';
 import gsap from 'gsap';
 
 const active = ref({})
@@ -38,20 +37,22 @@ const unActiveFunc = () => {
 
 // card移出屏幕动画
 const animationCardMoveVPLeft = () => {
-    gsap.to(active.value, { duration: 0.5, ease: "power1.out", x: '-100vw',})
+    gsap.to(active.value, { duration: 0.5, ease: "power1.out", x: '-100vw', })
 }
 const animationCardMoveVPRight = () => {
-    gsap.to(active.value, { duration: 0.5, ease: "power1.out", x: '100vw',})
+    gsap.to(active.value, { duration: 0.5, ease: "power1.out", x: '100vw', })
 }
 
 const doSomething = () => {
     // 获取盒子在视口的位置
     const boxRect = active.value.getBoundingClientRect();
     // console.log("Box position:", boxRect.top, boxRect.left);
-    const xw = boxRect.left - 0.05*window.innerWidth;
-    gsap.to(active.value, { duration: 0.5, width:'30vw',height: '100vh', scale: 1.1, ease: "power1.out", x: -xw,})
+    const xw = boxRect.left - 0.05 * window.innerWidth;
+    gsap.to(active.value, { duration: 0.5, width: '30vw', height: '100vh', scale: 1.1, ease: "power1.out", x: -xw, })
     // 调用父盒子的函数，用于触发激活元素的移出事件
     props.animationOtherCard(props.index)
+    // 带查询参数，结果是 /register?plan=private
+    // router.push({ path: '/register', query: { plan: 'private' } })
 }
 onMounted(() => {
     active.value.addEventListener('mouseover', function () {
@@ -61,7 +62,7 @@ onMounted(() => {
 })
 
 // 导出供父组件ref使用
-defineExpose({ activeFunc, unActiveFunc, animationCardMoveVPLeft ,animationCardMoveVPRight})
+defineExpose({ activeFunc, unActiveFunc, animationCardMoveVPLeft, animationCardMoveVPRight })
 </script>
 
 <style lang="scss" scoped>
@@ -161,4 +162,5 @@ defineExpose({ activeFunc, unActiveFunc, animationCardMoveVPLeft ,animationCardM
     .card__bottom__link {
         background-color: rgb(236, 97, 89);
     }
-}</style>
+}
+</style>
