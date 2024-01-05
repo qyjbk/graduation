@@ -13,8 +13,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, inject } from 'vue';
 import Card from './Card.vue';
+
+const triggerSelectAnimation = inject('animationFunc')
 
 // 对每个card标签进行标记
 const card1 = ref({})
@@ -66,6 +68,7 @@ const animationOtherCard = (index) => {
             }
         }
     }
+    triggerSelectAnimation()
 }
 
 // 作为props传递给子组件，用于修改父组件记录的当前激活的card标签
@@ -76,6 +79,8 @@ function changeActiveItem(id) {
 watch(() => activeItem.value, (newVal, oldVal) => {
     cardObj[`card${oldVal}`].value.unActiveFunc()
 })
+
+
 
 onMounted(() => {
     // 初始化第一个card标签，让其处于激活状态

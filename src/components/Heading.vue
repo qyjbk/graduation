@@ -4,7 +4,7 @@
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-diannao"></use>
       </svg>
-      <p class="heading__left__text">DIYPlayer</p>
+      <p class="heading__left__text" ref="headingLeftText">DIYPlayer</p>
     </div>
 
     <div class="heading__right">
@@ -25,6 +25,16 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import gsap from 'gsap';
+
+const headingLeftText = ref({});
+
+const animate = () => {
+  gsap.to(headingLeftText.value, { delay: 0.3, duration: 1, color: 'white', ease: 'power2.inOut'});
+}
+
+defineExpose({ animate })
 </script>
 
 <style lang="scss" scoped>
@@ -59,7 +69,7 @@
     margin: 0;
 
     &>* {
-      margin-left: 3rem;
+      margin-right: 3rem;
     }
 
     &:last-child {
