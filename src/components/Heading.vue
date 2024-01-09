@@ -25,14 +25,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router'
 import gsap from 'gsap';
+
+const route = useRoute();
 
 const headingLeftText = ref({});
 
 const animate = () => {
-  gsap.to(headingLeftText.value, { delay: 0.3, duration: 1, color: 'white', ease: 'power2.inOut'});
+  gsap.to(headingLeftText.value, { delay: 0.3, duration: 1, color: 'white', ease: 'power2.inOut' });
 }
+
+onMounted(() => {
+  if (route.name === 'detail') {
+    headingLeftText.value.style.color = 'white';
+  }
+})
 
 defineExpose({ animate })
 </script>
