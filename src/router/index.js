@@ -17,6 +17,11 @@ export default createRouter({
                     path: '/detail',
                     name: 'detail',
                     component: () => import('@/components/CardDetail.vue')
+                },
+                {
+                    path: '/shoppingCart',
+                    name: 'shoppingcart',
+                    component: () => import('@/components/ShoppingCart.vue')
                 }
             ]
         },

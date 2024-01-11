@@ -14,7 +14,7 @@ const heading = ref({})
 
 function triggerSelectAnimation() {
     console.log(heading)
-    heading.value.animate()
+    heading.value.animateLeftToWhite()
 }
 
 provide('animationFunc', triggerSelectAnimation)

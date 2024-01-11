@@ -17,6 +17,10 @@
   --margin-title-top: 5rem;
   --margin-title-left: 6rem;
   --margin-detail-top: 13rem;
+  --margin-item-top: 5rem;
+  --margin-btn-textToIcon: 1.6rem;
+
+  --border-btn-gray: 2px solid rgb(230, 230, 230);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

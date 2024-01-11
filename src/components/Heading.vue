@@ -7,7 +7,7 @@
       <p class="heading__left__text" ref="headingLeftText">DIYPlayer</p>
     </div>
 
-    <div class="heading__right">
+    <div class="heading__right" ref="headingRightText">
       <p>user</p>
       <el-popover placement="top-start" title="EMail：" :width="200" trigger="hover" content="kkshen15@gmail.com">
         <template #reference>
@@ -26,24 +26,33 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router'
-import gsap from 'gsap';
 
+import gsap from 'gsap';
+// 导入路由
+import { useRoute } from 'vue-router'
 const route = useRoute();
 
 const headingLeftText = ref({});
+const headingRightText = ref({});
 
-const animate = () => {
+const animateLeftToWhite = () => {
   gsap.to(headingLeftText.value, { delay: 0.3, duration: 1, color: 'white', ease: 'power2.inOut' });
+}
+
+const animateRightToWhite = () => {
+  gsap.to(headingRightText.value, { delay: 0.3, duration: 1, color: 'white', ease: 'power2.inOut' });
 }
 
 onMounted(() => {
   if (route.name === 'detail') {
     headingLeftText.value.style.color = 'white';
   }
+  if (route.name === 'shoppingcart') {
+    headingRightText.value.style.color = 'white';
+  }
 })
 
-defineExpose({ animate })
+defineExpose({ animateLeftToWhite, animateRightToWhite })
 </script>
 
 <style lang="scss" scoped>
@@ -96,7 +105,7 @@ defineExpose({ animate })
       &:visited {
         display: block;
         text-decoration: none;
-        color: var(--color-text);
+        color: inherit;
       }
     }
   }

@@ -22,22 +22,22 @@
             <a href="#" class="setting__btn">&larr;<span class="setting__btn__p">返回</span></a>
             <h2 class="setting__title">随心配</h2>
             <div class="setting__classify" ref="scrollbarBox">
-                <div class="setting__classify__item iconActive"><span
-                            class="iconfont icon-CPU"></span></div>
-                <div class="setting__classify__item "><span
-                            class="iconfont icon-gpu"></span></div>
-                <div class="setting__classify__item "><span
-                            class="iconfont icon-diannaojixiang-"></span></div>
-                <div class="setting__classify__item "><span
-                            class="iconfont icon-neicuntiao"></span></div>
-                <div class="setting__classify__item "><span
-                            class="iconfont icon-Drie-Settings"></span></div>
-                <div class="setting__classify__item "><span
-                            class="iconfont icon-dianyuan"></span></div>
-                <div class="setting__classify__item "><span
-                            class="iconfont icon-zhuban"></span></div>
-                <div class="setting__classify__item "><span
-                            class="iconfont icon-a-sanrefengshan"></span></div>
+                <button class="setting__classify__item iconActive" @click="getActived"><span
+                            class="iconfont icon-CPU setting__classify__item__icon"></span></button>
+                <button class="setting__classify__item " @click="getActived"><span
+                            class="iconfont icon-gpu setting__classify__item__icon"></span></button>
+                <button class="setting__classify__item " @click="getActived"><span
+                            class="iconfont icon-diannaojixiang- setting__classify__item__icon"></span></button>
+                <button class="setting__classify__item " @click="getActived"><span
+                            class="iconfont icon-neicuntiao setting__classify__item__icon"></span></button>
+                <button class="setting__classify__item " @click="getActived"><span
+                            class="iconfont icon-Drie-Settings setting__classify__item__icon"></span></button>
+                <button class="setting__classify__item " @click="getActived"><span
+                            class="iconfont icon-dianyuan setting__classify__item__icon"></span></button>
+                <button class="setting__classify__item " @click="getActived"><span
+                            class="iconfont icon-zhuban setting__classify__item__icon"></span></button>
+                <button class="setting__classify__item " @click="getActived"><span
+                            class="iconfont icon-a-sanrefengshan setting__classify__item__icon"></span></button>
             </div>
             <h3 class="setting__settingName">cpu</h3>
         </section>
@@ -52,46 +52,54 @@ import { ref, onMounted } from 'vue';
 
 const scrollbarBox = ref({})
 
+const getActived = (event) => {
+    console.log(event)
+    console.log(event.target.nodeName)
+    if (event.target.nodeName === 'SPAN') {
+        console.log('span')
+    }
+}
+
+// 滑动组件
 onMounted(() => {
-    const container = scrollbarBox.value;
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+    // const container = scrollbarBox.value;
+    // let isDown = false;
+    // let startX;
+    // let scrollLeft;
 
-    container.addEventListener('mousedown', (e) => {
-        isDown = true;
-        container.style.cursor = 'grabbing';
-        startX = e.pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-    });
+    // container.addEventListener('mousedown', (e) => {
+    //     isDown = true;
+    //     container.style.cursor = 'grabbing';
+    //     startX = e.pageX - container.offsetLeft;
+    //     scrollLeft = container.scrollLeft;
+    // });
 
-    container.addEventListener('mouseleave', () => {
-        isDown = false;
-        container.style.cursor = 'default';
-    });
+    // container.addEventListener('mouseleave', () => {
+    //     isDown = false;
+    //     container.style.cursor = 'default';
+    // });
 
-    container.addEventListener('mouseup', () => {
-        isDown = false;
-        container.style.cursor = 'default';
-    });
+    // container.addEventListener('mouseup', () => {
+    //     isDown = false;
+    //     container.style.cursor = 'default';
+    // });
 
-    container.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 1.5; //滚动速度
-        container.scrollLeft = scrollLeft - walk;
-        console.log(container.scrollLeft);
-        console.log('current',container.offsetWidth);
-        console.log('total',container.scrollWidth);
-    });
+    // container.addEventListener('mousemove', (e) => {
+    //     if (!isDown) return;
+    //     e.preventDefault();
+    //     const x = e.pageX - container.offsetLeft;
+    //     const walk = (x - startX) * 1.5; //滚动速度
+    //     container.scrollLeft = scrollLeft - walk;
+    //     // console.log(container.scrollLeft);
+    //     // console.log('current',container.offsetWidth);
+    //     // console.log('total',container.scrollWidth);
+    // });
 })
 
 </script>
 
 <style lang="scss" scoped>
 .detail__page {
-
     user-select: none;
 
     display: flex;
@@ -183,11 +191,11 @@ onMounted(() => {
     &__btn {
         font-size: 1.6rem;
         border-radius: .5rem;
-        border: 2px solid rgb(230, 230, 230);
+        border: var(--border-btn-gray);
         padding: 1rem 2rem;
 
         &__p {
-            margin-left: 1.6rem;
+            margin-left: var(--margin-btn-textToIcon);
         }
 
         &:link,
@@ -235,6 +243,12 @@ onMounted(() => {
 
                 
             // }
+            &__icon {
+                display: block;
+                width: 100%;
+                pointer-events: none;
+
+            }
 
 
         }
@@ -258,6 +272,7 @@ onMounted(() => {
 
 // 图标高亮
 .iconActive {
+    color: white;
     background-color: rgb(68, 196, 249);
 
     .setting__classify__item__link {
