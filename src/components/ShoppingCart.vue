@@ -145,13 +145,13 @@
             margin-top: .5rem;
         }
 
-        &__price{
+        &__price {
             margin-top: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            &__text{
+            &__text {
                 font-size: 2rem;
                 // letter-spacing: -0.3rem;
             }
