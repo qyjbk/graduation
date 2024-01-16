@@ -1,0 +1,29 @@
+{
+    "classifyname": "cpu",
+    "partsCards": [
+        {
+            "id": "aaaaa",
+            "partImg": "../assets/imgs/cpu-1.png",
+            "partBrand": "inter",
+            "partType": "i9-12900k",
+            "partPrice": 12999,
+            "partInventory": 10
+        },
+        {
+            "id": "bbbbb",
+            "partImg": "../assets/imgs/cpu-2.png",
+            "partBrand": "amd",
+            "partType": "r5-5600G",
+            "partPrice": 999,
+            "partInventory": 3
+        },
+        {
+            "id": "ccccc",
+            "partImg": "../assets/imgs/cpu-3.png",
+            "partBrand": "amd",
+            "partType": "r7-7800",
+            "partPrice": 10999,
+            "partInventory": 0
+        }
+    ]
+}

@@ -16,7 +16,8 @@ export default createRouter({
                 {
                     path: '/detail',
                     name: 'detail',
-                    component: () => import('@/components/CardDetail.vue')
+                    component: () => import('@/components/CardDetail.vue'),
+                    alias: ['/detail/:ptname']
                 },
                 {
                     path: '/shoppingCart',

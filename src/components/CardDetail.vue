@@ -28,15 +28,32 @@
                     clickable: true,
                     nextEl: '#classify__nextButton',
                     prevEl: '#classify__prevButton',
-                }" :modules="modules" class="mySwiper" @activeIndexChange="dosomething('classify',$event)" :grabCursor="true">
-                    <swiper-slide @click="activeIndexChange(0)" :class="{'actived__classify__card': activedIndex == 0}"><span class="iconfont icon-CPU swiper__icon" ></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(1)" :class="{'actived__classify__card': activedIndex == 1}"><span class="iconfont icon-gpu swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(2)" :class="{'actived__classify__card': activedIndex == 2}"><span class="iconfont icon-diannaojixiang- swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(3)" :class="{'actived__classify__card': activedIndex == 3}"><span class="iconfont icon-neicuntiao swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(4)" :class="{'actived__classify__card': activedIndex == 4}"><span class="iconfont icon-Drie-Settings swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(5)" :class="{'actived__classify__card': activedIndex == 5}"><span class="iconfont icon-dianyuan swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(6)" :class="{'actived__classify__card': activedIndex == 6}"><span class="iconfont icon-zhuban swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(7)" :class="{'actived__classify__card': activedIndex == 7}"><span class="iconfont icon-a-sanrefengshan swiper__icon"></span></swiper-slide>
+                }" :modules="modules" class="mySwiper" @activeIndexChange="dosomething('classify', $event)"
+                    :grabCursor="true">
+                    <swiper-slide @click="activeIndexChange(0, 'cpu')"
+                        :class="{ 'actived__classify': activedClassifyIndex == 0, }"><span
+                            class="iconfont icon-CPU swiper__icon"></span></swiper-slide>
+                    <swiper-slide @click="activeIndexChange(1, 'gpu')"
+                        :class="{ 'actived__classify': activedClassifyIndex == 1 }"><span
+                            class="iconfont icon-gpu swiper__icon"></span></swiper-slide>
+                    <swiper-slide @click="activeIndexChange(2, 'chassis')"
+                        :class="{ 'actived__classify': activedClassifyIndex == 2 }"><span
+                            class="iconfont icon-diannaojixiang- swiper__icon"></span></swiper-slide>
+                    <swiper-slide @click="activeIndexChange(3, 'ram')"
+                        :class="{ 'actived__classify': activedClassifyIndex == 3 }"><span
+                            class="iconfont icon-neicuntiao swiper__icon"></span></swiper-slide>
+                    <swiper-slide @click="activeIndexChange(4, 'disk')"
+                        :class="{ 'actived__classify': activedClassifyIndex == 4 }"><span
+                            class="iconfont icon-Drie-Settings swiper__icon"></span></swiper-slide>
+                    <swiper-slide @click="activeIndexChange(5, 'power')"
+                        :class="{ 'actived__classify': activedClassifyIndex == 5 }"><span
+                            class="iconfont icon-dianyuan swiper__icon"></span></swiper-slide>
+                    <swiper-slide @click="activeIndexChange(6, 'board')"
+                        :class="{ 'actived__classify': activedClassifyIndex == 6 }"><span
+                            class="iconfont icon-zhuban swiper__icon"></span></swiper-slide>
+                    <swiper-slide @click="activeIndexChange(7, 'fan')"
+                        :class="{ 'actived__classify': activedClassifyIndex == 7 }"><span
+                            class="iconfont icon-a-sanrefengshan swiper__icon"></span></swiper-slide>
                 </swiper>
                 <img src="../assets/imgs/arrow-right.svg" alt="滑块向右移动" id="classify__nextButton"
                     class="swiper__arrow swiper__arrow__right">
@@ -49,15 +66,25 @@
                     clickable: true,
                     nextEl: '#parts__nextButton',
                     prevEl: '#parts__prevButton',
-                }" :modules="modules" class="mySwiper" @activeIndexChange="dosomething('parts', $event)" :grabCursor="true">
-                    <swiper-slide @click="activeIndexChange(0)" :class="{'actived__classify__card': activedIndex == 0}"><span class="iconfont icon-CPU swiper__icon" ></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(1)" :class="{'actived__classify__card': activedIndex == 1}"><span class="iconfont icon-gpu swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(2)" :class="{'actived__classify__card': activedIndex == 2}"><span class="iconfont icon-diannaojixiang- swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(3)" :class="{'actived__classify__card': activedIndex == 3}"><span class="iconfont icon-neicuntiao swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(4)" :class="{'actived__classify__card': activedIndex == 4}"><span class="iconfont icon-Drie-Settings swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(5)" :class="{'actived__classify__card': activedIndex == 5}"><span class="iconfont icon-dianyuan swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(6)" :class="{'actived__classify__card': activedIndex == 6}"><span class="iconfont icon-zhuban swiper__icon"></span></swiper-slide>
-                    <swiper-slide @click="activeIndexChange(7)" :class="{'actived__classify__card': activedIndex == 7}"><span class="iconfont icon-a-sanrefengshan swiper__icon"></span></swiper-slide>
+                }" :modules="modules" class="mySwiper" @activeIndexChange="dosomething('parts', $event)"
+                    :grabCursor="true">
+                    <swiper-slide @click="activeIndexChange(0, 'rog4070', true)" @mouseenter="hoverPartsIndex = 0"
+                        :class="{ 'hover__parts': hoverPartsIndex == 0 }">
+                        <img src="../assets/imgs/gpu.jpg" alt="gpu picture" class="setting__parts__cardimg">
+                        <h2 class="setting__parts__brand">华硕 ROG</h2>
+                        <h3 class="setting__parts__type">4070 Ti</h3>
+                        <div class="underline__parts" id="underline0"></div>
+                    </swiper-slide>
+                    <swiper-slide @click="activeIndexChange(1, 'rog4070', true)" @mouseenter="hoverPartsIndex = 1"
+                        :class="{ 'hover__parts': hoverPartsIndex == 1 }"><span
+                            class="iconfont icon-gpu swiper__icon"></span>
+                        <div class="underline__parts" id="underline1"></div>
+                    </swiper-slide>
+                    <swiper-slide @click="activeIndexChange(2, 'rog4070', true)" @mouseenter="hoverPartsIndex = 2"
+                        :class="{ 'hover__parts': hoverPartsIndex == 2 }"><span
+                            class="iconfont icon-diannaojixiang- swiper__icon"></span>
+                        <div class="underline__parts" id="underline2"></div>
+                    </swiper-slide>
                 </swiper>
                 <img src="../assets/imgs/arrow-right.svg" alt="滑块向右移动" id="parts__nextButton"
                     class="swiper__arrow swiper__arrow__right">
@@ -71,6 +98,7 @@ import CardPrice from './CardPrice.vue';
 // import DetailSetting from './DetailSetting.vue'
 
 import { ref, onMounted, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -84,15 +112,45 @@ import gsap from "gsap";
 
 const modules = [Navigation];
 
-const activedIndex = ref(0);
+const $router = useRouter();
+const $route = useRoute();
+
+const activedClassifyIndex = ref(0);
+const activedPartsIndex = ref(0);
+const hoverPartsIndex = ref(0);
+
+// 后续提供http请求得来的数据
+const classify_recover_cpu = {
+    classifyname: "cpu",
+    partsCards: [
+        {
+            id: 'aaaaa',
+            partImg: "../assets/imgs/cpu-1.png",
+            partBrand: 'inter',
+            partType: 'i9-12900k',
+            partPrice: 12999,
+            partInventory: 10
+        },
+        {
+            id: 'bbbbb',
+            partImg: "../assets/imgs/cpu-2.png",
+            partBrand: 'amd',
+            partType: 'r5-5600G',
+            partPrice: 999,
+            partInventory: 10
+        }
+    ]
+}
 
 function dosomething(str, e) {
     // console.log(e, str);
     switch (e.activeIndex) {
         case 0:
             gsap.to(`#${str}__prevButton`, { duration: .3, opacity: 0, ease: "power1.out", yoyo: true });
+            gsap.to(`#${str}__nextButton`, { duration: .3, opacity: 1, ease: "power1.out", yoyo: true });
             break;
-        case 5:
+        case 4:
+            gsap.to(`#${str}__prevButton`, { duration: .3, opacity: 1, ease: "power1.out", yoyo: true });
             gsap.to(`#${str}__nextButton`, { duration: .3, opacity: 0, ease: "power1.out", yoyo: true });
             break;
         default:
@@ -102,20 +160,29 @@ function dosomething(str, e) {
     }
 }
 
-function activeIndexChange(num) {
-    activedIndex.value = num;
+function activeIndexChange(num, str, isparts = false) {
+    if (isparts) {
+        activedPartsIndex.value = num;
+    } else {
+        $router.push(`/detail/${str}`);
+        activedClassifyIndex.value = num;
+    }
 }
 
+watch(activedPartsIndex, (newVal, oldVal) => {
+    gsap.to(`#underline${oldVal}`, { duration: .3, width: 0, ease: "power1.out" });
+    gsap.to(`#underline${newVal}`, { duration: .3, width: '60%', ease: "power1.out" });
+})
+
 onMounted(() => {
+    console.log($route.params.ptname)
+    gsap.to('#underline0', { duration: 0, width: '60px', ease: "power1.out" });
     gsap.to('#classify__prevButton', { duration: 0, opacity: 0, ease: "power1.out", yoyo: true });
     gsap.to('#classify__prevButton', { duration: 1, x: -10, ease: "power1.out", repeat: -1, yoyo: true });
     gsap.to('#classify__nextButton', { duration: 1, x: 10, ease: "power1.out", repeat: -1, yoyo: true });
     gsap.to('#parts__prevButton', { duration: 0, opacity: 0, ease: "power1.out", yoyo: true });
     gsap.to('#parts__prevButton', { duration: 1, x: -10, ease: "power1.out", repeat: -1, yoyo: true });
     gsap.to('#parts__nextButton', { duration: 1, x: 10, ease: "power1.out", repeat: -1, yoyo: true });
-    // watch(document.getElementsByClassName('swiper')[0].activedIndex, (newValue, oldValue) => {
-    //     console.log(newValue, oldValue)
-    // })
 })
 
 </script>
@@ -127,7 +194,7 @@ onMounted(() => {
     display: flex;
     width: 100%;
     height: 100vh;
-    // overflow: hidden;
+    overflow: hidden;
 
     &__card {
         height: 100%;
@@ -270,17 +337,11 @@ onMounted(() => {
 }
 
 .swiper {
-    // margin-left: -3rem;
     transform: translateX(-2.5rem);
-    // overflow: auto;
     width: 100%;
     display: block;
 
-
-    /* height: 20%; */
     &__arrow {
-        // transform: translateX(-2.5rem);
-        // margin-left: -2.5rem;
         position: relative;
         left: -2.5rem;
         cursor: pointer;
@@ -288,7 +349,6 @@ onMounted(() => {
         height: 20px;
 
         &__left {
-            
             margin-right: 2rem;
         }
 
@@ -297,19 +357,54 @@ onMounted(() => {
         }
     }
 
-    &-slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 8rem;
-        height: 8rem;
-        border: 2px solid rgb(230, 230, 230);
-        border-radius: 8px;
-    }
-
     &__icon {
         color: inherit;
         font-size: 3rem;
+    }
+}
+
+.setting__classify {
+    .swiper {
+        &-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 8rem;
+            height: 8rem;
+            border: 2px solid rgb(230, 230, 230);
+            border-radius: 8px;
+        }
+    }
+}
+
+.setting__parts {
+    .swiper {
+        transform: translateX(0);
+
+        &-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 10rem;
+            height: 15rem;
+            // border: 2px solid rgb(230, 230, 230);
+            border-radius: 8px;
+        }
+    }
+
+    &__cardimg {
+        width: 90%;
+    }
+
+    &__brand {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+
+    &__type {
+        margin-top: 1rem;
+        font-size: 1.5rem;
     }
 }
 </style>
@@ -318,8 +413,24 @@ onMounted(() => {
 .swiper-wrapper {
     box-sizing: border-box;
 }
-.actived__classify__card {
+
+.actived__classify {
+    transition: color .2s, background-color .8s;
     color: white;
     background-color: rgb(68, 196, 249);
 }
-</style>
+
+.underline__parts {
+    transition: all .3s;
+    transform-origin: center;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0.3rem;
+    background-color: rgb(235, 97, 90)
+}
+
+.hover__parts {
+    background-color: rgb(228, 225, 220);
+}</style>

@@ -1,0 +1,29 @@
+{
+    "classifyname": "cpu",
+    "partsCards": [
+        {
+            "id": "aaaaa",
+            "partImg": "../assets/imgs/gpu-1.png",
+            "partBrand": "华硕 ROG",
+            "partType": "4070 Ti",
+            "partPrice": 3999,
+            "partInventory": 10
+        },
+        {
+            "id": "bbbbb",
+            "partImg": "../assets/imgs/cpu-2.png",
+            "partBrand": "樱瞳花嫁纪念版",
+            "partType": "6800 XT",
+            "partPrice": 7299,
+            "partInventory": 0
+        },
+        {
+            "id": "ccccc",
+            "partImg": "../assets/imgs/cpu-3.png",
+            "partBrand": "铭瑄瑷珈",
+            "partType": "RTX4080",
+            "partPrice": 8499,
+            "partInventory": 0
+        }
+    ]
+}

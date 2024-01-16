@@ -2,12 +2,14 @@
     <section class="main">
         <h1 class="main__title">推荐电脑搭配</h1>
         <div class="mainContent__flexBox">
-            <Card :card="card[0]" :changeActiveItem="changeActiveItem" ref="card1" :index="0"
-                :animationOtherCard='animationOtherCard'></Card>
-            <Card :card="card[1]" :changeActiveItem="changeActiveItem" ref="card2" :index="1"
-                :animationOtherCard='animationOtherCard'></Card>
-            <Card :card="card[2]" :changeActiveItem="changeActiveItem" ref="card3" :index="2"
-                :animationOtherCard='animationOtherCard'></Card>
+            <transition>
+                <Card :card="card[0]" :changeActiveItem="changeActiveItem" ref="card1" :index="0"
+                    :animationOtherCard='animationOtherCard'></Card>
+                <Card :card="card[1]" :changeActiveItem="changeActiveItem" ref="card2" :index="1"
+                    :animationOtherCard='animationOtherCard'></Card>
+                <Card :card="card[2]" :changeActiveItem="changeActiveItem" ref="card3" :index="2"
+                    :animationOtherCard='animationOtherCard'></Card>
+            </transition>
         </div>
     </section>
 </template>
@@ -90,17 +92,19 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .main {
-  height: calc(100vh - 12rem);
-  &__title {
-    margin-top: calc(2 * var(--margin-title-top));
-    margin-bottom: var(--margin-title-top);
-    font-weight: 400;
-    font-size: 2.5rem;
-    margin-left: var(--margin-title-left);
-    letter-spacing: .2rem;
-    line-height: 3rem;
-  }
+    height: calc(100vh - 12rem);
+
+    &__title {
+        margin-top: calc(2 * var(--margin-title-top));
+        margin-bottom: var(--margin-title-top);
+        font-weight: 400;
+        font-size: 2.5rem;
+        margin-left: var(--margin-title-left);
+        letter-spacing: .2rem;
+        line-height: 3rem;
+    }
 }
+
 .mainContent__flexBox {
     height: calc(100vh - 14rem);
     display: flex;
