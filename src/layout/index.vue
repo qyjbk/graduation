@@ -13,7 +13,6 @@ import { ref, provide } from 'vue'
 const heading = ref({})
 
 function triggerSelectAnimation() {
-    console.log(heading)
     heading.value.animateLeftToWhite()
 }
 

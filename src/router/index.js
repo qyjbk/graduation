@@ -11,13 +11,20 @@ export default createRouter({
                 {
                     path: '/home',
                     name: 'home',
-                    component: () => import('@/components/MainContent.vue')
+                    component: () => import('@/components/MainContent.vue'),
+                    beforeRouteEnter(to, from) {
+                        // console.log(this)
+                        // console.log('home beforeRouteEnter', to);
+                    }
+                },
+                {
+                    path: '/detail/:ptname',
+                    name: 'detail',
+                    component: () => import('@/components/CardDetail.vue'),
                 },
                 {
                     path: '/detail',
-                    name: 'detail',
-                    component: () => import('@/components/CardDetail.vue'),
-                    alias: ['/detail/:ptname']
+                    redirect: '/detail/cpu'
                 },
                 {
                     path: '/shoppingCart',

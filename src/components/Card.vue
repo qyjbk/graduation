@@ -4,7 +4,7 @@
             <h2>{{ card.name }}</h2>
         </div>
         <div class="card__picbox">
-            <img class="card__picbox__pic" src="../assets/imgs/cp1.png" alt="电脑照片">
+            <img class="card__picbox__pic" :src="card.imgSrc" alt="电脑照片">
         </div>
         <CardPrice :price="card.price || '?'" btnText="+"></CardPrice>
     </div>

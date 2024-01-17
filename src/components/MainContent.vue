@@ -2,14 +2,14 @@
     <section class="main">
         <h1 class="main__title">推荐电脑搭配</h1>
         <div class="mainContent__flexBox">
-            <transition>
+            <Transition appear @enter="" @leave="">
                 <Card :card="card[0]" :changeActiveItem="changeActiveItem" ref="card1" :index="0"
-                    :animationOtherCard='animationOtherCard'></Card>
-                <Card :card="card[1]" :changeActiveItem="changeActiveItem" ref="card2" :index="1"
-                    :animationOtherCard='animationOtherCard'></Card>
-                <Card :card="card[2]" :changeActiveItem="changeActiveItem" ref="card3" :index="2"
-                    :animationOtherCard='animationOtherCard'></Card>
-            </transition>
+                :animationOtherCard='animationOtherCard'></Card>
+            </Transition>
+            <Card :card="card[1]" :changeActiveItem="changeActiveItem" ref="card2" :index="1"
+                :animationOtherCard='animationOtherCard'></Card>
+            <Card :card="card[2]" :changeActiveItem="changeActiveItem" ref="card3" :index="2"
+                :animationOtherCard='animationOtherCard'></Card>
         </div>
     </section>
 </template>
@@ -40,23 +40,24 @@ const card = [
     {
         id: 1,
         name: '简朴',
-        imgSrc: '../assets/imgs/cp1.png',
+        imgSrc: '/imgs/cpbox/qsb.png',
         price: '5999',
     },
     {
         id: 2,
         name: '海景房',
-        imgSrc: '../assets/imgs/cp1.png',
+        imgSrc: '/imgs/cpbox/wj.png',
         price: '15999',
     },
     {
         id: 3,
         name: '机械',
-        imgSrc: '../assets/imgs/cp1.png',
+        imgSrc: '/imgs/cpbox/xm.png',
         price: '8999',
     },
 ]
 
+// 传递给子组件触发
 // 让非事件触发者的card标签进行动画
 const animationOtherCard = (index) => {
     // 
@@ -82,29 +83,26 @@ watch(() => activeItem.value, (newVal, oldVal) => {
     cardObj[`card${oldVal}`].value.unActiveFunc()
 })
 
-
-
 onMounted(() => {
     // 初始化第一个card标签，让其处于激活状态
     card1.value.activeFunc()
 })
+
 </script>
 
 <style lang="scss" scoped>
 .main {
-    height: calc(100vh - 12rem);
-
-    &__title {
-        margin-top: calc(2 * var(--margin-title-top));
-        margin-bottom: var(--margin-title-top);
-        font-weight: 400;
-        font-size: 2.5rem;
-        margin-left: var(--margin-title-left);
-        letter-spacing: .2rem;
-        line-height: 3rem;
-    }
+  height: calc(100vh - 12rem);
+  &__title {
+    margin-top: calc(2 * var(--margin-title-top));
+    margin-bottom: var(--margin-title-top);
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-left: var(--margin-title-left);
+    letter-spacing: .2rem;
+    line-height: 3rem;
+  }
 }
-
 .mainContent__flexBox {
     height: calc(100vh - 14rem);
     display: flex;

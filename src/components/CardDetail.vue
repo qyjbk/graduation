@@ -125,18 +125,56 @@ const classify_recover_cpu = {
     partsCards: [
         {
             id: 'aaaaa',
-            partImg: "../assets/imgs/cpu-1.png",
+            partImg: "/imgs/cpu/i7_13700.png", 
             partBrand: 'inter',
-            partType: 'i9-12900k',
-            partPrice: 12999,
+            partType: 'i7_13700',
+            partPrice: 2599,
             partInventory: 10
         },
         {
             id: 'bbbbb',
-            partImg: "../assets/imgs/cpu-2.png",
+            partImg: "/imgs/cpu/r5_5600x.png",
             partBrand: 'amd',
             partType: 'r5-5600G',
             partPrice: 999,
+            partInventory: 10
+        },
+        {
+            id: 'ccccc',
+            partImg: "/imgs/cpu/r7_7800x3d.png",
+            partBrand: 'amd',
+            partType: 'r7_7800x3d',
+            partPrice: 2999,
+            partInventory: 10
+        }
+    ]
+}
+
+const classify_recover_board = {
+    classifyname: "board",
+    partsCards: [
+        {
+            id: 'aaaaa',
+            partImg: "/imgs/cpu/i7_13700.png", 
+            partBrand: 'inter',
+            partType: 'i7_13700',
+            partPrice: 2599,
+            partInventory: 10
+        },
+        {
+            id: 'bbbbb',
+            partImg: "/imgs/cpu/r5_5600x.png",
+            partBrand: 'amd',
+            partType: 'r5-5600G',
+            partPrice: 999,
+            partInventory: 10
+        },
+        {
+            id: 'ccccc',
+            partImg: "/imgs/cpu/r7_7800x3d.png",
+            partBrand: 'amd',
+            partType: 'r7_7800x3d',
+            partPrice: 2999,
             partInventory: 10
         }
     ]
