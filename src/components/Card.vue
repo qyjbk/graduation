@@ -13,8 +13,11 @@
 <script setup>
 import { ref, onMounted, } from 'vue';
 import gsap from 'gsap';
+import { useRouter } from 'vue-router';
 
 import CardPrice from './CardPrice.vue';
+
+const $router = useRouter()
 
 const active = ref({})
 const props = defineProps(['card', 'animationOtherCard', 'changeActiveItem', 'index'])
@@ -47,6 +50,9 @@ const doSomething = () => {
     gsap.to(active.value, { duration: 0.5, width: '30vw', height: '100vh', scale: 1.1, ease: "power1.out", x: -xw, })
     // 调用父盒子的函数，用于触发激活元素的移出事件
     props.animationOtherCard(props.index)
+    setTimeout( () => {
+        $router.push({ path: '/detail' })
+    }, 1000)
     // 带查询参数，结果是 /register?plan=private
     // router.push({ path: '/register', query: { plan: 'private' } })
 }

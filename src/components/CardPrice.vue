@@ -4,13 +4,15 @@
             <div class="card__bottom__price__des">Price</div>
             <div class="card__bottom__price__num">￥{{ props.price || '????' }}</div>
         </div>
-        <a href="#" class="card__bottom__link" ref="btnEle">{{ props.btnText }}</a>
+        <a href="#" class="card__bottom__link" ref="btnEle" @click="$router.push({path: '/shoppingcart'})">{{ props.btnText }}</a>
     </div>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import { ref, onMounted } from 'vue';
 
+const $router = useRouter();
 const btnEle = ref({});
 
 const props = defineProps(['price', 'btnText', 'highlight'])

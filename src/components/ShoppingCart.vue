@@ -8,7 +8,7 @@
                 <h2>已添加至购物车</h2>
             </div>
             <div class="leftBox__btnBox">
-                <a class="leftBox__btnBox__backToBrowse" href="#">继续浏览</a>
+                <a class="leftBox__btnBox__backToBrowse" href="#" @click="$router.push({path: '/detail'})">继续浏览</a>
                 <button class="leftBox__btnBox__buyNow"><span
                         class="leftBox__btnBox__buyNow__text">立即下单</span>&rarr;</button>
             </div>
@@ -40,7 +40,9 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 
+const $router = useRouter();
 </script>
 
 <style lang="scss" scoped>

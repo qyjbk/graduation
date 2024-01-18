@@ -40,19 +40,19 @@ const card = [
     {
         id: 1,
         name: '简朴',
-        imgSrc: '/imgs/cpbox/qsb.png',
+        imgSrc: '/imgs/chassis/qsb.png',
         price: '5999',
     },
     {
         id: 2,
         name: '海景房',
-        imgSrc: '/imgs/cpbox/wj.png',
+        imgSrc: '/imgs/chassis/wj.png',
         price: '15999',
     },
     {
         id: 3,
         name: '机械',
-        imgSrc: '/imgs/cpbox/xm.png',
+        imgSrc: '/imgs/chassis/xm.png',
         price: '8999',
     },
 ]
