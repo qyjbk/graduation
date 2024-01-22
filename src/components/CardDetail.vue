@@ -3,8 +3,8 @@
         <section class="detail__page__card">
             <section class="card__menu">
                 <h2>海景</h2>
-                <a href="#" class="menuActive card__menu__link">灯火阑珊</a>
-                <a href="#" class="card__menu__link">暗影寂静</a>
+                <a href="#" class="card__menu__link" :class="{'menuActive': menuActiveNum == 0}" @click="menuActiveNum = 0">灯火阑珊</a>
+                <a href="#" class="card__menu__link" :class="{'menuActive': menuActiveNum == 1}" @click="menuActiveNum = 1">暗影寂静</a>
             </section>
             <section class="card__main">
                 <div class="card__main__left">
@@ -116,12 +116,16 @@ const modules = [Navigation];
 
 const $router = useRouter();
 const $route = useRoute();
+console.log($route.meta);
+// console.log($router.meta);
 
+// 当前激活的类别索引
 const activedClassifyIndex = ref(0);
+// 当前激活的类别索引和鼠标悬停的hover索引
 const activedPartsIndex = ref(0);
 const hoverPartsIndex = ref(0);
-
-
+// 当前激活的光效索引
+const menuActiveNum = ref(0)
 
 // 后续提供http请求得来的数据
 const classify_recover_cpu = {
@@ -561,7 +565,9 @@ onMounted(() => {
 }
 
 .menuActive {
+    transition: all 0.3s ease-in-out;
     &::after {
+        transition: all 0.3s ease-in-out;
         content: "";
         display: block;
         width: 60%;
